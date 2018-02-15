@@ -1,0 +1,19 @@
+[Unit]
+Description=lora_pkt_fwd LoRa packet forwarder
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=idle
+User=root
+Group=root
+WorkingDirectory=/etc/lora_pkt_fwd
+ExecStartPre=/usr/bin/reset_lgw.sh start 17
+ExecStart=/usr/bin/lora_pkt_fwd
+StartLimitBurst=15
+StartLimitInterval=45
+RestartSec=1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,64 @@
+From 0a41828ba9cd1d23cb2746d1bb8c94ea19b919eb Mon Sep 17 00:00:00 2001
+From: Erkki Eilonen <erkki@itech.ee>
+Date: Thu, 15 Feb 2018 09:43:46 +0700
+Subject: [PATCH] disable boot prompt on rpi devices; connected serial devices
+ will trigger prompt and break boot
+
+---
+ configs/rpi_2_defconfig     | 1 +
+ configs/rpi_3_32b_defconfig | 1 +
+ configs/rpi_3_defconfig     | 1 +
+ configs/rpi_defconfig       | 1 +
+ 4 files changed, 4 insertions(+)
+
+diff --git a/configs/rpi_2_defconfig b/configs/rpi_2_defconfig
+index 2345697..58e37c4 100644
+--- a/configs/rpi_2_defconfig
++++ b/configs/rpi_2_defconfig
+@@ -7,6 +7,7 @@ CONFIG_OF_BOARD_SETUP=y
+ # CONFIG_DISPLAY_CPUINFO is not set
+ # CONFIG_DISPLAY_BOARDINFO is not set
+ CONFIG_SYS_PROMPT="U-Boot> "
++CONFIG_BOOTDELAY=-2
+ # CONFIG_CMD_IMLS is not set
+ # CONFIG_CMD_FLASH is not set
+ # CONFIG_CMD_FPGA is not set
+diff --git a/configs/rpi_3_32b_defconfig b/configs/rpi_3_32b_defconfig
+index bb56a9e..0feaff3 100644
+--- a/configs/rpi_3_32b_defconfig
++++ b/configs/rpi_3_32b_defconfig
+@@ -8,6 +8,7 @@ CONFIG_OF_BOARD_SETUP=y
+ # CONFIG_DISPLAY_CPUINFO is not set
+ # CONFIG_DISPLAY_BOARDINFO is not set
+ CONFIG_SYS_PROMPT="U-Boot> "
++CONFIG_BOOTDELAY=-2
+ # CONFIG_CMD_IMLS is not set
+ # CONFIG_CMD_FLASH is not set
+ # CONFIG_CMD_FPGA is not set
+diff --git a/configs/rpi_3_defconfig b/configs/rpi_3_defconfig
+index 6edacd6..fc213eb 100644
+--- a/configs/rpi_3_defconfig
++++ b/configs/rpi_3_defconfig
+@@ -8,6 +8,7 @@ CONFIG_OF_BOARD_SETUP=y
+ # CONFIG_DISPLAY_CPUINFO is not set
+ # CONFIG_DISPLAY_BOARDINFO is not set
+ CONFIG_SYS_PROMPT="U-Boot> "
++CONFIG_BOOTDELAY=-2
+ # CONFIG_CMD_IMLS is not set
+ # CONFIG_CMD_FLASH is not set
+ # CONFIG_CMD_FPGA is not set
+diff --git a/configs/rpi_defconfig b/configs/rpi_defconfig
+index 2e81966..cb46065 100644
+--- a/configs/rpi_defconfig
++++ b/configs/rpi_defconfig
+@@ -7,6 +7,7 @@ CONFIG_OF_BOARD_SETUP=y
+ # CONFIG_DISPLAY_CPUINFO is not set
+ # CONFIG_DISPLAY_BOARDINFO is not set
+ CONFIG_SYS_PROMPT="U-Boot> "
++CONFIG_BOOTDELAY=-2
+ # CONFIG_CMD_IMLS is not set
+ # CONFIG_CMD_FLASH is not set
+ # CONFIG_CMD_FPGA is not set
+-- 
+2.3.5
+
